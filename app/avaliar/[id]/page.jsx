@@ -26,7 +26,7 @@ export default function Avaliar() {
         marca: dado.marca,
         preco: dado.preco,
         cor: dado.cor,
-        capa: dado.capa,
+        foto: dado.foto,
         descricao: dado.descricao,
         soma: dado.soma,
         num: dado.num
@@ -111,9 +111,7 @@ export default function Avaliar() {
               
               <div class="d-grid gap-2 col-4 ms-auto">
                 <input type="submit" className="btn btn-success btn-lg mt-3" value="Enviar" />
-                <Link href={"/listaAval/"+props.produtos.id}>
-                  <input type="submit" className="btn btn-warning btn-lg mt-3" value="Avaliações" />
-                </Link>
+                
 
                 
               </div>
