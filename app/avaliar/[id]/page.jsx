@@ -69,7 +69,7 @@ export default function Avaliar() {
       <div className="row mt-3">
         <div className="col">
           <div className="card">
-            <img src={produtos.capa} alt="produtos" width={300} className="mx-auto d-block mt-1" />
+            <img src={produtos.foto} alt="produtos" width={300} className="mx-auto d-block mt-1" />
             <div className="card-body">
               <h5 className="card-title">
                 {produtos.nome}

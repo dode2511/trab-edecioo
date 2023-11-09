@@ -33,8 +33,8 @@
       "descricao": "O Boné Adidas  apresenta tecnologia respirável e uma faixa ajustável para manter você coberto e confortável.",
       "destaque": true,
       "id": 4,
-      "soma": 7,
-      "num": 2
+      "soma": 14,
+      "num": 4
     },
     {
       "cor": "Preto",
@@ -45,8 +45,8 @@
       "descricao": "Macio por fora, ligeiramente felpudo por dentro, nosso fleece semi-escovado de peso médio ajuda a manter você confortável ",
       "id": 5,
       "destaque": true,
-      "soma": 10,
-      "num": 3
+      "soma": 15,
+      "num": 4
     },
     {
       "nome": "Moletom Nike Sportwear Club",
@@ -215,6 +215,30 @@
       "produto_id": 2,
       "data": "2023-11-09T07:03:02.029Z",
       "id": 10
+    },
+    {
+      "estrelas": "4",
+      "comentario": "boa qualidade",
+      "cliente_id": 2,
+      "produto_id": 4,
+      "data": "2023-11-09T12:20:57.291Z",
+      "id": 11
+    },
+    {
+      "estrelas": 3,
+      "comentario": "boa qualidade",
+      "cliente_id": 2,
+      "produto_id": 4,
+      "data": "2023-11-09T12:22:18.348Z",
+      "id": 12
+    },
+    {
+      "estrelas": "5",
+      "comentario": "bom",
+      "cliente_id": 2,
+      "produto_id": 5,
+      "data": "2023-11-09T12:22:39.315Z",
+      "id": 13
     }
   ]
 }
