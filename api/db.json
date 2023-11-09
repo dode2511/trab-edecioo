@@ -1,0 +1,230 @@
+{
+  "produtos": [
+    {
+      "nome": "camisa adidas W3ST ",
+      "marca": "Adidas",
+      "preco": "R$ 120.00",
+      "cor": "Branco",
+      "artista": "Margot Robbie, Ryan Gosling, Issa Rae",
+      "capa": "https://i.imgur.com/un1xcXr.jpeg",
+      "descricao": "Graças ao tecido de algodão leve e ao ajuste clássico, a camiseta Adidas  W3ST é tão indispensável quanto tênis e frutas frescas.",
+      "id": 2,
+      "destaque": true,
+      "soma": 24,
+      "num": 6
+    },
+    {
+      "nome": "Camisa Puma Logo",
+      "marca": "Puma",
+      "preco": "R$ 90.00",
+      "cor": "Branco",
+      "artista": "Jason Statham, Jing Wu, Sienna Guillory",
+      "capa": "https://i.imgur.com/i2zMrb0.jpg",
+      "descricao": "Eleve-se com a camiseta de manga curta Puma. Fabricada em algodão macio e confortável,a mais vendida da marca.",
+      "id": 3,
+      "destaque": true,
+      "soma": 15,
+      "num": 4
+    },
+    {
+      "nome": "Boné Adidas ",
+      "marca": "Adidas",
+      "preco": "R$ 80.00",
+      "cor": "Branco",
+      "artista": "Xolo Maridueña, Bruna Marquezine",
+      "capa": "https://i.imgur.com/L23sv0V.jpg",
+      "descricao": "O Boné Adidas  apresenta tecnologia respirável e uma faixa ajustável para manter você coberto e confortável.",
+      "destaque": true,
+      "id": 4,
+      "soma": 7,
+      "num": 2
+    },
+    {
+      "cor": "Preto",
+      "nome": "Moletom Fila Basic",
+      "marca": "Fila",
+      "preco": "R$ 210.99",
+      "artista": "Jeff Rowe",
+      "capa": "https://i.imgur.com/81NxWXa.jpg",
+      "descricao": "Macio por fora, ligeiramente felpudo por dentro, nosso fleece semi-escovado de peso médio ajuda a manter você confortável ",
+      "id": 5,
+      "destaque": true,
+      "soma": 10,
+      "num": 3
+    },
+    {
+      "nome": "Moletom Nike Sportwear Club",
+      "cor": "Bege",
+      "destaque": true,
+      "marca": "nike",
+      "preco": "R$ 199.99",
+      "artista": "Maurício Manfrini, Cacau Protásio, Alexandre Lino",
+      "capa": "https://i.imgur.com/btUsvqK.jpg",
+      "descricao": "Casaco em moletom com felpa. Modelo possui capuz com cordão de ajuste",
+      "id": 6,
+      "soma": 10,
+      "num": 2
+    },
+    {
+      "nome": "Calça Moletom Fila",
+      "marca": "Fila",
+      "preco": "R$ 150.90",
+      "cor": "Cinza",
+      "artista": "Juan Paiva, Lucas Koka Penteado, Clara Moneke",
+      "capa": "https://i.imgur.com/sImkpXm.png",
+      "descricao": "Vista essa calça macia para conforto fácil e aquecimento leve. As aberturas elásticas contornam o seu corpo e ajudam a manter a calça no lugar.",
+      "id": 7,
+      "destaque": true,
+      "soma": 21,
+      "num": 6
+    },
+    {
+      "nome": "Calça Moletom Puma",
+      "marca": "Puma",
+      "preco": "R$ 120.00",
+      "cor": "Preto",
+      "artista": "Conheça suas novas calças de moletom para o que der e vier. Feitas de fleece semiescovada para um toque ultrassuave",
+      "capa": "https://i.imgur.com/e809b7s.jpg",
+      "descricao": "universalmente adorado pelo seu conforto e consistência, é para todos. Com uma perna mais comprida e extra espaçosa.                                                 ",
+      "id": 8,
+      "destaque": true,
+      "soma": 15,
+      "num": 5
+    },
+    {
+      "nome": "Moletom Nike Logo",
+      "marca": "Nike",
+      "preco": "R$ 170.00",
+      "cor": "Cinza",
+      "artista": "Alexandra Lamy, Muriel Robin, Eye Haidara",
+      "capa": "https://i.imgur.com/0X2lXYj.jpg",
+      "descricao": "Moletom Nike  proporciona conforto macio em um estilo que você realmente pode usar todos os dias.",
+      "id": 9,
+      "destaque": true,
+      "soma": 10,
+      "num": 2
+    },
+    {
+      "nome": "Camisa Dry Fit Nike",
+      "marca": "Nike",
+      "preco": "R$ 99.90",
+      "cor": "Preto",
+      "artista": "Denis Chernov",
+      "capa": "https://i.imgur.com/wFA1HeI.png",
+      "descricao": "O tecido macio e elástico afasta o suor da sua pele para ajudar você a se manter focado e dar o seu melhor.",
+      "id": 10,
+      "destaque": true,
+      "soma": 13,
+      "num": 3
+    },
+    {
+      "nome": "Camisa Fila Logo",
+      "marca": "FIla",
+      "preco": "R$ 80.00",
+      "cor": "Preto",
+      "artista": "Denis Chernov",
+      "capa": "https://i.imgur.com/nrs3PZP.jpg",
+      "descricao": "Camiseta masculina confeccionada em meia malha premium de algodão. Modelagem regular com gola careca em ribana e manga curta..",
+      "id": 10,
+      "destaque": true,
+      "soma": 13,
+      "num": 3
+    }
+  ],
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "Gabriela Cavalheiro",
+      "email": "gabriela@gmail.com",
+      "senha": "gabriela123"
+    },
+    {
+      "id": 2,
+      "nome": "Leon Junior",
+      "email": "leon@gmail.com",
+      "senha": "leon123"
+    }
+  ],
+  "avaliacoes": [
+    {
+      "id": 1,
+      "cliente_id": 1,
+      "filme_id": 1,
+      "comentario": "Gostei",
+      "estrelas": 4,
+      "data": "2023-11-05"
+    },
+    {
+      "estrelas": 3,
+      "comentario": "",
+      "cliente_id": 1,
+      "filme_id": 3,
+      "data": "2023-11-05T13:52:08.254Z",
+      "id": 2
+    },
+    {
+      "estrelas": "5",
+      "comentario": "",
+      "cliente_id": 1,
+      "filme_id": 10,
+      "data": "2023-11-05T14:07:19.547Z",
+      "id": 3
+    },
+    {
+      "estrelas": "2",
+      "comentario": "",
+      "cliente_id": 2,
+      "filme_id": 2,
+      "data": "2023-11-07T14:23:02.977Z",
+      "id": 4
+    },
+    {
+      "estrelas": "5",
+      "comentario": "",
+      "cliente_id": 1,
+      "filme_id": 2,
+      "data": "2023-11-08T21:36:14.982Z",
+      "id": 5
+    },
+    {
+      "estrelas": "4",
+      "comentario": "boa",
+      "cliente_id": 2,
+      "filme_id": 2,
+      "data": "2023-11-09T05:01:34.276Z",
+      "id": 6
+    },
+    {
+      "estrelas": "5",
+      "comentario": "gostei",
+      "cliente_id": 2,
+      "filme_id": 8,
+      "data": "2023-11-09T05:01:57.473Z",
+      "id": 7
+    },
+    {
+      "estrelas": "4",
+      "comentario": "legal",
+      "cliente_id": 2,
+      "filme_id": 3,
+      "data": "2023-11-09T06:52:25.931Z",
+      "id": 8
+    },
+    {
+      "estrelas": 3,
+      "comentario": "",
+      "cliente_id": 2,
+      "produto_id": 3,
+      "data": "2023-11-09T06:55:56.218Z",
+      "id": 9
+    },
+    {
+      "estrelas": 3,
+      "comentario": "",
+      "cliente_id": 2,
+      "produto_id": 2,
+      "data": "2023-11-09T07:03:02.029Z",
+      "id": 10
+    }
+  ]
+}
