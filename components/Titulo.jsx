@@ -35,6 +35,18 @@ export default function Titulo() {
           <button className="btn btn-gray text-black" type="button"><i class="bi bi-search"></i></button>
         </div>
         <div className="col">
+        <h5 className="text-white text-center ">
+          {clienteNome ? clienteNome : ""}
+          {
+            clienteNome ?
+              <i></i> :
+              <Link href="/grafic"><i class="bi bi-bar-chart-line text-black "></i></Link>
+          }
+          </h5>
+        </div>
+
+        <div className="col">
+        
           <h5 className="text-white text-center ">
           {clienteNome ? clienteNome : ""}
           {

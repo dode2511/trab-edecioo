@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     async function getProdutos() {
       try {
-        const response = await fetch("http://localhost:3004/produtos")
+        const response = await fetch("http://localhost:3004/roupas")
         if (!response.ok) {
           throw new Error(`Erro na solicitação: ${response.status}`)
         }
