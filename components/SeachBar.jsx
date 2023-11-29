@@ -11,7 +11,7 @@ export const SearchBar = () =>{
 
 
 const fetchData = (value) => {
-     fetch("http://localhost:3004/produtos").then((response) =>  response.json()).then((json)=>{
+     fetch("http://localhost:3004/roupas").then((response) =>  response.json()).then((json)=>{
         const results = json.filter((produtos)=> {
             return produtos && produtos.name && produtos.name.toLowerCase().includes(value)
         })

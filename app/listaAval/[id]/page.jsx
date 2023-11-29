@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';  // Adicionando a importação do Link
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
@@ -8,7 +9,7 @@ import { ClienteContext } from "@/contexts/cliente"
 
 export default function Avaliar() {
   const params = useParams()
-  const [produtos, setprodutos] = useState({})
+  const [roupas, setprodutos] = useState({})
   const { clienteId } = useContext(ClienteContext)
 
   const { register, handleSubmit, reset } = useForm({
@@ -16,17 +17,20 @@ export default function Avaliar() {
   })
 
   useEffect(() => {
-    async function getProdutos() {
-      const response = await fetch("http://localhost:3004/produtos/" + params.id)
-      const dado = await response.json()
     
+    async function getProdutos() {
+      console.log("Before fetching product details");
+      const response = await fetch("http://localhost:3004/roupas/" + params.id)
+      console.log("After fetching product details", response);
+      const dado = await response.json()
+      console.log(dado);
       setprodutos({
         id: dado.id,
         nome: dado.nome,
         marca: dado.marca,
         preco: dado.preco,
         cor: dado.cor,
-        capa: dado.capa,
+        capa: dado.foto,
         descricao: dado.descricao,
         soma: dado.soma,
         num: dado.num
@@ -35,9 +39,14 @@ export default function Avaliar() {
     getProdutos()
     
   }, [])
-
+  
   async function enviaComentario(data) {
-    const avaliacao = {...data, cliente_id: clienteId, produto_id: produtos.id, data: new Date()}
+    if (!roupas.id) {
+      alert("Erro: Produto não carregado corretamente.");
+      return;
+    }
+
+    const avaliacao = { ...data, cliente_id: clienteId, roupa_id: roupas.id, data: new Date() }
 
     const avalia = await fetch("http://localhost:3004/avaliacoes",
       {
@@ -47,8 +56,8 @@ export default function Avaliar() {
       },
     )
 
-    const altera = {soma: Number(produtos.soma) + Number(data.estrelas), num: Number(produtos.num) + 1}
-    const atualiza_estrelas = await fetch("http://localhost:3004/produtos/"+produtos.id,
+    const altera = { soma: Number(roupas.soma) + Number(data.estrelas), num: Number(roupas.num) + 1 }
+    const atualiza_estrelas = await fetch("http://localhost:3004/roupas/"+roupas.id,
       {
         method: "PATCH",
         headers: { "Content-type": "application/json" },
@@ -56,11 +65,11 @@ export default function Avaliar() {
       },
     )
 
-    if (avalia.status == 201 && atualiza_estrelas.status == 200) {
-      alert("Ok! Avaliação cadastrada com sucesso")
-      reset()
+    if (avalia.status === 201 && atualiza_estrelas.status === 200) {
+      alert("Ok! Avaliação cadastrada com sucesso");
+      reset();
     } else {
-      alert("Erro no cadastro da avaliação...")
+      alert("Erro no cadastro da avaliação...");
     }
   }
 
@@ -69,38 +78,37 @@ export default function Avaliar() {
       <div className="row mt-3">
         <div className="col">
           <div className="card">
-            <img src={produtos.capa} alt="produtos" width={300} className="mx-auto d-block mt-1" />
+            <img src={roupas.foto} alt="roupas" width={300} className="mx-auto d-block mt-1" />
             <div className="card-body">
               <h5 className="card-title">
-                {produtos.nome}
+                {roupas.nome}
               </h5>
               <p className="card-text">
-                {produtos.marca} - {produtos.cor}
+                {roupas.marca} - {roupas.cor}
               </p>
               <p className="card-text small">
-                Preço: {produtos.preco}
+                Preço: {roupas.preco}
               </p>
               <p className="card-text small">
-                {produtos.descricao}
+                {roupas.descricao}
               </p>
-              <Estrelas soma={produtos.soma} num={produtos.num} />
-              <span className="ms-2">{produtos.num} avaliações</span>
+              <Estrelas soma={roupas.soma} num={roupas.num} />
+              <span className="ms-2">{roupas.num} avaliações</span>
             </div>
           </div>
         </div>
         <div className="col ">
           <div className="card">
             <form className="card-body" onSubmit={handleSubmit(enviaComentario)}>
-              <h3 className="card-title">Deixe sua opiniao</h3>
+              <h3 className="card-title">Deixe sua opinião</h3>
               <hr />
-              <div class="my-4">
-                <label for="comentario" class="form-label fs-5">Seu Comentário:</label>
-                <textarea class="form-control form-control-lg" id="comentario" rows="3"
-                  {...register("comentario")}></textarea>
+              <div className="my-4">
+                <label htmlFor="comentario" className="form-label fs-5">Seu Comentário:</label>
+                <textarea className="form-control form-control-lg" id="comentario" rows="3" {...register("comentario")}></textarea>
               </div>
-              <div class="mb-3">
-                <label for="estrelas" class="form-label fs-5">Sua Avaliação (Estrelas)</label>
-                <select class="form-select form-select-lg mb-3 ronded" {...register("estrelas")}>
+              <div className="mb-3">
+                <label htmlFor="estrelas" className="form-label fs-5">Sua Avaliação (Estrelas)</label>
+                <select className="form-select form-select-lg mb-3 ronded" {...register("estrelas")}>
                   <option value="1">1 Estrela</option>
                   <option value="2">2 Estrelas</option>
                   <option value="3">3 Estrelas</option>
@@ -109,13 +117,11 @@ export default function Avaliar() {
                 </select>
               </div>
               
-              <div class="d-grid gap-2 col-4 ms-auto">
+              <div className="d-grid gap-2 col-4 ms-auto">
                 <input type="submit" className="btn btn-success btn-lg mt-3" value="Enviar" />
-                <Link href={"/listaAval/"+props.produtos.id}>
+                <Link href={"/listaAval/"+props.roupas.id}>
                   <input type="submit" className="btn btn-warning btn-lg mt-3" value="Avaliações" />
                 </Link>
-
-                
               </div>
             </form>
           </div>

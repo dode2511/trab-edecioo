@@ -39,8 +39,8 @@ export default function Titulo() {
           {clienteNome ? clienteNome : ""}
           {
             clienteNome ?
-              <i></i> :
-              <Link href="/grafic"><i class="bi bi-bar-chart-line text-black "></i></Link>
+            <Link href="/grafic"><i class="bi bi-bar-chart-line text-black "></i></Link> :
+              <i></i>
           }
           </h5>
         </div>

@@ -17,7 +17,7 @@ export default function Avaliar() {
 
   useEffect(() => {
     async function getProdutos() {
-      const response = await fetch("http://localhost:3004/produtos/" + params.id)
+      const response = await fetch("http://localhost:3004/roupas/" + params.id)
       const dado = await response.json()
     
       setprodutos({
@@ -48,7 +48,7 @@ export default function Avaliar() {
     )
 
     const altera = {soma: Number(produtos.soma) + Number(data.estrelas), num: Number(produtos.num) + 1}
-    const atualiza_estrelas = await fetch("http://localhost:3004/produtos/"+produtos.id,
+    const atualiza_estrelas = await fetch("http://localhost:3004/roupas/"+produtos.id,
       {
         method: "PATCH",
         headers: { "Content-type": "application/json" },

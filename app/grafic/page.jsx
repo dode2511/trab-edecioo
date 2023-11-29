@@ -92,7 +92,7 @@ export default function Home() {
       </div>
 
       <div className={styles.box3}>
-        <Comentarios/>
+    
       </div>
       </div>
       </section>
