@@ -8,7 +8,7 @@ import { ClienteContext } from "@/contexts/cliente"
 
 export default function Avaliar() {
   const params = useParams()
-  const [produtos, setprodutos] = useState({})
+  const [roupas, setprodutos] = useState({})
   const { clienteId } = useContext(ClienteContext)
 
   const { register, handleSubmit, reset } = useForm({
@@ -36,55 +36,78 @@ export default function Avaliar() {
     
   }, [])
 
+
+
   async function enviaComentario(data) {
-    const avaliacao = {...data, cliente_id: clienteId, produto_id: produtos.id, data: new Date()}
+    //    const avaliacao = {...data, cliente_id: clienteId, filme_id: filme.id, data: new Date()}
+        const avaliacao = {...data, cliente_id: clienteId, roupa_id: roupas.id}
+    
+        const avalia = await fetch("http://localhost:3004/avaliacoes",
+          {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(avaliacao)
+          },
+        )
+    
+        if (avalia.status == 201) {      
+          alert("Ok! Avaliação cadastrada com sucesso")
+          reset()
+        } else {
+          alert("Erro no cadastro da avaliação...")
+        }
+      }
+    
 
-    const avalia = await fetch("http://localhost:3004/avaliacoes",
-      {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(avaliacao)
-      },
-    )
+  // async function enviaComentario(data) {
+  //   const avaliacao = {...data, cliente_id: clienteId, roupa_id: roupas.id, data: new Date()}
 
-    const altera = {soma: Number(produtos.soma) + Number(data.estrelas), num: Number(produtos.num) + 1}
-    const atualiza_estrelas = await fetch("http://localhost:3004/roupas/"+produtos.id,
-      {
-        method: "PATCH",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(altera)
-      },
-    )
+  //   const avalia = await fetch("http://localhost:3004/avaliacoes",
+  //     {
+  //       method: "POST",
+  //       headers: { "Content-type": "application/json" },
+  //       body: JSON.stringify(avaliacao)
+  //     },
+  //   )
 
-    if (avalia.status == 201 && atualiza_estrelas.status == 200) {
-      alert("Ok! Avaliação cadastrada com sucesso")
-      reset()
-    } else {
-      alert("Erro no cadastro da avaliação...")
-    }
-  }
+  //   const altera = {soma: Number(roupas.soma) + Number(data.estrelas), num: Number(roupas.num) + 1}
+  //   const atualiza_estrelas = await fetch("http://localhost:3004/roupas/"+roupas.id,
+  //     {
+  //       method: "POST",
+  //       headers: { "Content-type": "application/json" },
+  //       body: JSON.stringify(altera)
+  //     },
+  //   )
+
+  //   if (avalia.status == 201 && atualiza_estrelas.status == 200) {
+  //     alert("Ok! Avaliação cadastrada com sucesso")
+  //     reset()
+  //   } else {
+  //     alert("Erro no cadastro da avaliação...")
+  //   }
+  // }
 
   return (
     <div className="container ">
       <div className="row mt-3">
         <div className="col">
           <div className="card">
-            <img src={produtos.foto} alt="produtos" width={300} className="mx-auto d-block mt-1" />
+            <img src={roupas.foto} alt="roupas" width={300} className="mx-auto d-block mt-1" />
             <div className="card-body">
               <h5 className="card-title">
-                {produtos.nome}
+                {roupas.nome}
               </h5>
               <p className="card-text">
-                {produtos.marca} - {produtos.cor}
+                {roupas.marca} - {roupas.cor}
               </p>
               <p className="card-text small">
-                Preço: {produtos.preco}
+                Preço: {roupas.preco}
               </p>
               <p className="card-text small">
-                {produtos.descricao}
+                {roupas.descricao}
               </p>
-              <Estrelas soma={produtos.soma} num={produtos.num} />
-              <span className="ms-2">{produtos.num} avaliações</span>
+              <Estrelas soma={roupas.soma} num={roupas.num} />
+              <span className="ms-2">{roupas.num} avaliações</span>
             </div>
           </div>
         </div>

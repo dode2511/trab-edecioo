@@ -13,27 +13,23 @@ export default function Login() {
   const router = useRouter()
 
   async function verificaLogin(data) {
-    //    VERSÃO JSON SERVER
-        // const login = `email=${data.email}&senha=${data.senha}`
-        // const response = await fetch(`http://localhost:3004/clientes?${login}`)
+      
     
         const response = await fetch("http://localhost:3004/login",
           {
             method: "POST",
             headers: { "Content-type": "application/json" },
-            body: JSON.stringify({email: data.email, senha: data.senha})
+            body: JSON.stringify({email: data.email, senha: data.senha ,adm:data.adm})
           },
         )
         
         if (response.status == 401) {
           alert("Não está cadastrado")
         } else {
-          // alert("Ok!")
           const cliente = await response.json()
-    //      console.log(cliente)  
           mudaId(cliente.id)
           mudaNome(cliente.nome)
-          localStorage.setItem("cliente_logado", JSON.stringify({id: cliente.id, nome: cliente.nome}))
+          localStorage.setItem("cliente_logado", JSON.stringify({id: cliente.id, nome: cliente.nome,adm:cliente.adm}))
           router.push("/")
         }
       }

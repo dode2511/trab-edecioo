@@ -31,12 +31,12 @@ export default function Home() {
   }, [])
 
   const dados = [
-    ["Estrelas", "Avaliação dos Clientes", "Meta da Revenda"],
-    ["1", 0, 5],
-    ["2", 0, 15],
-    ["3", 0, 10],
-    ["4", 0, 30],
-    ["5", 0, 40],
+    ["Estrelas", "Avaliação dos Clientes"],
+    ["1", 0 ],
+    ["2", 0],
+    ["3", 0 ],
+    ["4", 0 ],
+    ["5", 0],
   ];
 
   let somaAvaliacoes = 0
@@ -45,7 +45,7 @@ export default function Home() {
   })
 
   produtos.forEach(produto => {
-    dados[produto.estrelas][1] = (produto.num / somaAvaliacoes) * 100
+    dados[produto.estrelas][1] = ((produto.num / somaAvaliacoes) * 10).toFixed(0)
   })
 
   return (

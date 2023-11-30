@@ -6,20 +6,22 @@ import { ClienteContext } from "@/contexts/cliente"
 import Link from "next/link"
 
 export default function Titulo() {
-  const { clienteNome, mudaId, mudaNome } = useContext(ClienteContext)
+  const { clienteNome, mudaId, mudaNome ,admStatus,mudaStatus } = useContext(ClienteContext)
 
   function logout() {
     if (confirm("Confirma a saída do sistema? ")) {
       mudaId(null)
       mudaNome("")
+      mudaStatus(false)
       localStorage.removeItem("cliente_logado")
     }
   }
 
-
+console.log(admStatus);
 
 
   return (
+    
     <nav className="navbar bg-white shadow-lg">
       <div className="container-fluid">
         <div className="col">
@@ -29,25 +31,33 @@ export default function Titulo() {
             
           </Link>
         </div>
-        
+{/*         
         <div className="col input-group my-3">
           <input type="text" className="form-control rounded "  />
           <button className="btn btn-gray text-black" type="button"><i class="bi bi-search"></i></button>
-        </div>
-        <div className="col">
-        <h5 className="text-white text-center ">
-          {clienteNome ? clienteNome : ""}
+        </div> */}
+        <div className="col-sm-2">
+        <h5 className="text-white text-end ">
+          
           {
-            clienteNome ?
+            clienteNome && admStatus ?
             <Link href="/grafic"><i class="bi bi-bar-chart-line text-black "></i></Link> :
               <i></i>
           }
           </h5>
-        </div>
-
-        <div className="col">
-        
-          <h5 className="text-white text-center ">
+          </div>
+          <div className="col-sm-2">
+        <h5 className="text-white text-center ">
+          
+          {
+            clienteNome && admStatus ?
+            <Link href="/avaliacoes"><i class="bi bi-bookmark-star-fill text-black"></i></Link> :
+              <i></i>
+          }
+          </h5>
+          </div>
+          <div className="col-sm-2">
+          <h5 className="text-white text-start ">
           {clienteNome ? clienteNome : ""}
           {
             clienteNome ?
